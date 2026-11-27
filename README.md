@@ -37,6 +37,12 @@ Reference in your project:
 This project's discoveries live in the [Knowledgebase](https://github.com/jewzaam/knowledgebase).
 ```
 
+## [Astrophotography](astrophotography/)
+
+| Doc | Description |
+|---|---|
+| [PixInsight headless automation](astrophotography/pixinsight-headless-automation.md) | Running PixInsight 1.9.6 scripts without the GUI: command-line flags, settings slots, PJSR gotchas, loading the Canon Banding Reduction engine, RC-Astro BlurX/NoiseX/StarX timings and parameters, PixelMath symbols, MMT layers, stars-layer behaviour, UI Automation and DPI traps |
+
 ## [Build and CI/CD](build/)
 
 | Doc | Description |
@@ -52,6 +58,9 @@ This project's discoveries live in the [Knowledgebase](https://github.com/jewzaa
 | Doc | Description |
 |---|---|
 | [Agent SDK Usage Data](claude-code/agent-sdk-usage-data.md) | Extracting cost, token, context, and rate-limit data from the Agent SDK |
+| [Headless Session IDs](claude-code/headless-session-ids.md) | `claude -p --session-id` chooses the id, `--resume` continues it; busy-session behavior, resume from another cwd, kill then resume |
+| [Headless Mid-Turn Messages and Interrupt](claude-code/headless-injection-and-interrupt.md) | stream-json message folding, interrupt control request, spawn latency and cost |
+| [Headless Write Enforcement](claude-code/headless-write-enforcement.md) | `--settings` PreToolUse hooks in bypass mode, Bash hole, allowlist vs denylist |
 | [Hook State Transitions](claude-code/hook-state-transitions.md) | Hook event types, state machines, and configuration |
 | [Model Restrictions](claude-code/model-restrictions.md) | `availableModels` allowlist scope and prefix matching, managed-only `deniedModels`, `enforceAvailableModels` scope conflict, the Default picker row and why no key hides it, precedence chain, gateway discovery `claude`/`anthropic` substring filter, `modelOverrides` key rules |
 | [OAuth Tokens](claude-code/oauth-tokens.md) | Anthropic OAuth token taxonomy, endpoint compatibility, error-envelope quirks, `~/.claude.json` auth-file requirement, K8s Secret tmpfs reset |
@@ -60,6 +69,7 @@ This project's discoveries live in the [Knowledgebase](https://github.com/jewzaa
 | [OTEL Native Telemetry](claude-code/otel-native-telemetry.md) | Native OTEL event types, labels, query_source taxonomy, session state derivation signals |
 | [Skills](claude-code/skills.md) | Permission enforcement detail, shell injection mechanics |
 | [Workflow Structured Output](claude-code/workflow-structured-output.md) | Workflow `args` global failure, `agent(schema:)` mechanism, Ajv validation, schema constraints |
+| [Headless stream-json Sessions](claude-code/headless-stream-json-sessions.md) | Persistent `claude -p` session, context size from last API call, AskUserQuestion control requests, `--session-id`/`--resume` errors, `--strict-mcp-config`, usage-limit windows |
 | [WebSearch and Sub-Agent Tools](claude-code/websearch-and-subagent-tools.md) | WebSearch server-side execution vs WebFetch client-side egress, per-session search budget, non-verbatim results, sub-agent permission-prompt visibility, Bash output visibility |
 
 ## [Codex CLI](codex-code/)
@@ -79,9 +89,13 @@ This project's discoveries live in the [Knowledgebase](https://github.com/jewzaa
 | [Commit Conventions](common/commit-conventions.md) | Commit type taxonomy evolution from AngularJS through Angular to Conventional Commits; why `chore` and `style` persist |
 | [CRLF Line Endings Under WSL](common/crlf-wsl.md) | CRLF silently breaks bash scripts; detection via `file`, one-off `dos2unix`, durable `.gitattributes` prevention |
 | [gdbus GVariant Escaping](common/gdbus-gvariant-escaping.md) | gdbus GVariant double-escaping of quotes in D-Bus extension output, JSON parsing fix |
+| [Git Worktrees](common/git-worktrees.md) | One branch per worktree (exact error), isolation, dirty-worktree removal needs `--force` |
 | [Git Remote Discovery](common/git-remote-discovery.md) | Why `origin`/`upstream` are conventions not contracts |
 | [Mermaid Rendering](common/mermaid-rendering.md) | Node placement via connections, style color inheritance, subgraph nesting contrast, legend rendering, label quoting |
+| [GitHub Projects v2 and gh](common/github-projects-v2-and-gh.md) | Polling cost, single-select option replacement, view API limits, `since` filters, rate limits, `gh` quoting on PowerShell 5.1, `--attach` |
+| [PowerShell 5.1 Traps](common/powershell-5-1-traps.md) | `ConvertFrom-Json` array unrolling, case-insensitive variables, ANSI source, `Set-Content` BOM |
 | [GNU tar mtime Handling](common/tar-mtime.md) | Default format stores whole-second mtimes (extraction truncates nanoseconds), `--newer` tests mtime or ctime while `--newer-mtime` tests mtime only, filtering without traversal effect, consequences for mtime-based delta transfers |
+| [Windows 11 and PowerShell 5.1](common/windows-11-and-powershell-5-1.md) | Windows 11 Home gaps, `conhost --headless`, whisper.cpp on Windows, PowerShell 5.1 traps |
 | [VS Code / GNOME Window Calls](common/vscode-gnome-window-calls.md) | `wm_class` is `com.microsoft.VSCode` not `code`; shared pid across windows makes terminal-tab attribution unobservable; `List` response shape, null-title guard, title-to-workspace extraction; `gdbus` vs `psutil.children(recursive=True)` call cost |
 
 ## [Containers](containers/)
@@ -93,11 +107,26 @@ This project's discoveries live in the [Knowledgebase](https://github.com/jewzaa
 | [Podman Rootless Networking](containers/podman-rootless-networking.md) | Pasta TAP vs interface-copy mode, rootless-netns debugging, bridge data path, pasta version regressions |
 | [Terminal Multiplexers in Sandboxes](containers/terminal-multiplexers-in-sandboxes.md) | screen/tmux/dtach inside Landlock-enforced sandboxes: `/dev/pts` PTY fix, terminal emulation vs Claude Code TUI, dtach raw passthrough as working solution |
 
+## [Discord](discord/)
+
+| Doc | Description |
+|---|---|
+| [Bot REST API](discord/bot-rest-api.md) | Send/reaction endpoints, headers, limits, permission bits, intents, polls, voice messages |
+| [Threads](discord/threads.md) | Docs-sourced: auto-unarchive, permissions, archive durations, limits, deletion |
+
 ## [.NET](dotnet/)
 
 | Doc | Description |
 |---|---|
+| [Windows UI Testing](dotnet/windows-ui-testing.md) | FlaUI.UIA3, xUnit v3 parallelization, WinForms AccessibleName |
 | [NINA Plugin](dotnet/nina-plugin.md) | NINA 3.x C# plugin: build, MEF, mediators, options, HTTP, logging, publishing |
+
+## [Astro](astro/)
+
+| Doc | Description |
+|---|---|
+| [Gaia TAP Star Counts](astro/gaia-tap.md) | Querying Gaia DR3 star counts through the ESA TAP service: request shape, box search, which ADQL forms failed |
+| [NINA Sequence Files](astro/nina-sequence-files.md) | Generating and checking NINA 3.2 sequence JSON with NINA's own classes, instruction types, file pattern tokens, UI automation limits |
 
 ## [Kubernetes](kubernetes/)
 

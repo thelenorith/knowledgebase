@@ -47,6 +47,10 @@ When adding a new knowledgebase doc:
 4. If the topic has a prescriptive companion in standards, cross-link both ways
 5. Run `make test-reachability` to confirm
 
+## Astrophotography
+
+- [astrophotography/pixinsight-headless-automation.md](astrophotography/pixinsight-headless-automation.md) — PixInsight 1.9.6 headless runs: `--automation-mode --run` flags and settings slots, silent-failure traps in PJSR scripts, `#define` macros vs `eval`, loading the Canon Banding Reduction engine without its dialog, RC-Astro BlurX/NoiseX/StarX parameters and CPU timings, PixelMath `symbols`, MMT layer array, near-zero stars layers, GUI automation on scaled displays
+
 ## Build and CI/CD
 
 - [build/ghcr-publish.md](build/ghcr-publish.md) — why fine-grained PATs fail, classic PAT scoping, OCI label linkage mechanics, first-publish-private behavior
@@ -58,6 +62,12 @@ When adding a new knowledgebase doc:
 ## Claude Code
 
 - [claude-code/agent-sdk-usage-data.md](claude-code/agent-sdk-usage-data.md) — extracting cost, token, context, and rate-limit data from the Agent SDK
+- [claude-code/headless-stream-json-sessions.md](claude-code/headless-stream-json-sessions.md) — `claude -p` stream-json persistent session (one process, many messages, mid-turn folding), context size from the last API call, AskUserQuestion via `--permission-prompt-tool stdio`, `--session-id` vs `--resume` errors, plugin MCP servers and `--strict-mcp-config`, variadic `--channels`, what bypass mode still prompts for, usage-limit windows and status line fields, sub-agent model resolution order
+- [claude-code/hook-state-transitions.md](claude-code/hook-state-transitions.md) — hook event types, state machines, configuration, `Stop` vs `StopFailure`, fail-open on unstartable hooks
+- [claude-code/headless-session-ids.md](claude-code/headless-session-ids.md) — `claude -p --session-id` chooses the id, `--resume` continues it
+- [claude-code/headless-session-ids.md](claude-code/headless-session-ids.md) — `claude -p --session-id` chooses the id, `--resume` continues it; second process on a busy id, resume from another cwd or worktree, kill mid-turn then resume
+- [claude-code/headless-injection-and-interrupt.md](claude-code/headless-injection-and-interrupt.md) — stream-json mid-turn message folding (reaction only between steps, sub-agent not cancelled), the interrupt control request (~120 ms, process survives, interrupt before the first tool loses the turn), spawn-to-init latency and haiku cost per run
+- [claude-code/headless-write-enforcement.md](claude-code/headless-write-enforcement.md) — `--settings` PreToolUse hooks in headless bypass mode, exit 2 vs JSON deny, Edit/Write matcher not covering Bash, Bash denylist bypass vs allowlist, `--disallowedTools`, untested areas
 - [claude-code/hook-state-transitions.md](claude-code/hook-state-transitions.md) — hook event types, state machines, configuration
 - [claude-code/model-restrictions.md](claude-code/model-restrictions.md) — `availableModels` allowlist scope and entry matching, managed-only `deniedModels`, `enforceAvailableModels` scope conflict, the Default picker row, precedence chain, gateway discovery `claude`/`anthropic` substring filter, `modelOverrides` key rules
 - [claude-code/oauth-tokens.md](claude-code/oauth-tokens.md) — Anthropic OAuth token taxonomy, endpoint compatibility, error-envelope quirks, `~/.claude.json` auth-file requirement, K8s Secret tmpfs reset
@@ -67,6 +77,7 @@ When adding a new knowledgebase doc:
 - [claude-code/otel-native-telemetry.md](claude-code/otel-native-telemetry.md) — native OTEL event types, labels, query_source taxonomy, session state derivation signals
 - [claude-code/workflow-structured-output.md](claude-code/workflow-structured-output.md) — Workflow tool `args` global failure, `agent(schema:)` StructuredOutput mechanism, Ajv validation, schema constraint support matrix
 - [claude-code/websearch-and-subagent-tools.md](claude-code/websearch-and-subagent-tools.md) — WebSearch server-side execution vs WebFetch client-side egress, per-session search budget, non-verbatim results, sub-agent permission-prompt visibility, Bash output visibility
+- [claude-code/dispatcher-checkout-staleness.md](claude-code/dispatcher-checkout-staleness.md) — merged dispatcher fixes are inactive until the host checkout fast-forwards; the pass-start pull, skip reasons, PS 5.1 empty-file gotcha
 
 ## Codex CLI
 
@@ -92,9 +103,13 @@ When adding a new knowledgebase doc:
 - [common/commit-conventions.md](common/commit-conventions.md) — commit type taxonomy evolution from AngularJS through Angular to Conventional Commits; why `chore` and `style` persist despite Angular dropping them
 - [common/crlf-wsl.md](common/crlf-wsl.md) — CRLF line endings silently break bash scripts under WSL; detection, one-off fix, and durable `.gitattributes` prevention
 - [common/gdbus-gvariant-escaping.md](common/gdbus-gvariant-escaping.md) — gdbus GVariant double-escaping of quotes in D-Bus extension output, JSON parsing fix
+- [common/git-worktrees.md](common/git-worktrees.md) — one branch per worktree (exact error), worktree isolation, removing a dirty worktree needs `--force`
 - [common/git-remote-discovery.md](common/git-remote-discovery.md) — why `origin`/`upstream` are conventions not contracts
 - [common/mermaid-rendering.md](common/mermaid-rendering.md) — Mermaid rendering behaviors: node placement via connections, style color inheritance, subgraph nesting contrast, legend rendering, label quoting
+- [common/github-projects-v2-and-gh.md](common/github-projects-v2-and-gh.md) — Projects v2 polling cost, single-select option replacement keeping item values, view API limits, `since` filters, rate-limit behavior, `gh` quoting on PowerShell 5.1, `--attach` uploads
+- [common/powershell-5-1-traps.md](common/powershell-5-1-traps.md) — `ConvertFrom-Json` array unrolling, case-insensitive variables, ANSI source without BOM, `Set-Content` BOM
 - [common/tar-mtime.md](common/tar-mtime.md) — GNU tar mtime handling: default format stores whole seconds (extraction truncates nanoseconds), `--newer` tests mtime or ctime while `--newer-mtime` tests mtime only, filtering does not affect directory traversal, consequences for mtime-based delta transfers
+- [common/windows-11-and-powershell-5-1.md](common/windows-11-and-powershell-5-1.md) — Windows 11 Home missing features, `conhost --headless`, whisper-cli VC runtime exit code, Autologon, whisper.cpp Windows releases/model speed, PowerShell 5.1 ExitCode/stderr/BOM/alias traps
 - [common/vscode-gnome-window-calls.md](common/vscode-gnome-window-calls.md) — GNOME `window-calls` extension facts for VS Code windows: `wm_class` is `com.microsoft.VSCode` not `code`, shared pid across windows making terminal-tab attribution unobservable, `List` response shape and null-title guard, title-to-workspace extraction, `gdbus` vs `psutil.children(recursive=True)` call cost
 
 Standards counterpart: [standards/common/documentation-diagrams.md](https://github.com/jewzaam/standards/blob/main/common/documentation-diagrams.md) — prescriptive rules for diagram structure
@@ -105,9 +120,19 @@ Standards counterpart: [standards/common/documentation-diagrams.md](https://gith
 - [containers/podman-rootless-networking.md](containers/podman-rootless-networking.md) — pasta TAP vs interface-copy mode, rootless-netns debugging, bridge data path, pasta version regressions
 - [containers/terminal-multiplexers-in-sandboxes.md](containers/terminal-multiplexers-in-sandboxes.md) — screen/tmux/dtach inside Landlock-enforced sandboxes: `/dev/pts` PTY fix, terminal emulation vs Claude Code TUI, dtach raw passthrough as working solution
 
+## Discord
+
+- [discord/bot-rest-api.md](discord/bot-rest-api.md) — message send and reaction endpoints, required headers and limits, permission bits, invite URL, Message Content intent, poll limits, voice message format
+
 ## .NET
 
+- [dotnet/windows-ui-testing.md](dotnet/windows-ui-testing.md) — FlaUI.UIA3 on net10.0-windows, xUnit v3 missing `Parallelization` attribute, WinForms `AccessibleName` as UIA Name
 - [dotnet/nina-plugin.md](dotnet/nina-plugin.md) — NINA 3.x C# plugin: build, MEF, mediators, options, HTTP, logging, publishing
+
+## Astronomy data services
+
+- [astro/gaia-tap.md](astro/gaia-tap.md) — Gaia DR3 star counts through the ESA TAP sync endpoint: request shape, box search, which ADQL forms failed
+- [astro/nina-sequence-files.md](astro/nina-sequence-files.md) — NINA 3.2 sequence JSON: building it with NINA's own classes, instruction names seen, TakeManyExposures structure, binning $ref sharing, target-name file-pattern token, UI Automation cannot see tab content
 
 ## Kubernetes
 
@@ -125,6 +150,10 @@ Standards counterpart: [standards/common/documentation-diagrams.md](https://gith
 - [kubernetes/tailscale-operator.md](kubernetes/tailscale-operator.md) — Tailscale K8s operator: ClusterIP Service exposure, port=tailnet-port mapping, port 443 for portless URLs, L4 TCP passthrough (no TLS termination)
 - [kubernetes/podsecurity-restricted-pod.md](kubernetes/podsecurity-restricted-pod.md) — admission-rejection wall-of-text format and why it surfaces only at admission
 - [kubernetes/resource-limits.md](kubernetes/resource-limits.md) — CFS bandwidth controller throttling mechanics; why CPU limits hurt
+
+## Discord
+
+- [discord/threads.md](discord/threads.md) — docs-sourced thread facts: auto-unarchive on message unless locked, permissions for posting/un-archiving, `auto_archive_duration` values, name length, unstated rename/creation limits, deletion
 
 ## Observability
 
