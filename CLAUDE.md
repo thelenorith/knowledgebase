@@ -77,6 +77,7 @@ When adding a new knowledgebase doc:
 - [claude-code/otel-native-telemetry.md](claude-code/otel-native-telemetry.md) — native OTEL event types, labels, query_source taxonomy, session state derivation signals
 - [claude-code/workflow-structured-output.md](claude-code/workflow-structured-output.md) — Workflow tool `args` global failure, `agent(schema:)` StructuredOutput mechanism, Ajv validation, schema constraint support matrix
 - [claude-code/websearch-and-subagent-tools.md](claude-code/websearch-and-subagent-tools.md) — WebSearch server-side execution vs WebFetch client-side egress, per-session search budget, non-verbatim results, sub-agent permission-prompt visibility, Bash output visibility
+- [claude-code/dispatcher-checkout-staleness.md](claude-code/dispatcher-checkout-staleness.md) — merged dispatcher fixes are inactive until the host checkout fast-forwards; the pass-start pull, skip reasons, PS 5.1 empty-file gotcha
 
 ## Codex CLI
 
